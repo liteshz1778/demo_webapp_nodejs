@@ -35,3 +35,7 @@ NOTE: Application can be access on http://localhost:3000
 6. docker image ls
 
 7. docker image push liteshz/webapp-demo-nodejs-reactjs:v1
+
+8. docker container run -d -p 9090:3000 liteshz/webapp-demo-nodejs-reactjs:v1
+
+9. docker container ls
