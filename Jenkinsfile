@@ -11,7 +11,7 @@ pipeline{
 		string(name: 'image_tag', defaultValue: 'latest', description: 'Enter Image Tag:')
 		string(name: 'local_expose_port', defaultValue: '9090', description: 'Enter Local Exposed Port No.')
 		string(name: 'container_exposed_port', defaultValue: '3000', description: 'Enter Container Exposed Port No.')
-		booleanParam(name: 'push_image', defaultValue: false, description: 'Enter true if we want to push image to registry')
+		booleanParam(name: 'push_image', defaultValue: true, description: 'Enter true if we want to push image to registry')
 	}
 	environment{
 		docker_username="liteshz"
