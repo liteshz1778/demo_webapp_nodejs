@@ -91,6 +91,11 @@ pipeline{
 				"""	
 			}
 		}
+		stage("Images Cleanup"){
+			steps{
+				sh "docker images prune -f -a"
+			}
+		}
 		stage("Push Image based user input..."){
 			steps{
 				script{
@@ -104,11 +109,6 @@ pipeline{
 						error("Build aborted by condition")
 					}
 				}
-			}
-		}
-		stage("Images Cleanup"){
-			steps{
-				sh "docker images prune -f -a"
 			}
 		}
 	}
