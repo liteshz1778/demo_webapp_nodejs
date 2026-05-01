@@ -53,18 +53,22 @@ pipeline{
 			steps {
 				script {
 					// Generate epoch time
-					def epoch = System.currentTimeMillis() / 1000
+					def epoch = System.currentTimeMillis() / 100000
 
 					// Create new image tag/name
 					env.IMAGE_WITH_EPOCH = "${params.image_name}-${epoch}"
 
 					echo "Generated Image Name: ${env.IMAGE_WITH_EPOCH}"
+					
+					env.TAG = "${params.image_tag}-${env.BUILD_NUMBER}"
+					
+					echo "Image Tag: ${env.TAG}"
 				}
 
 				dir(env.REPO_NAME){
 					sh """
 						set -e
-						docker build -t ${env.docker_username}/${env.IMAGE_WITH_EPOCH}:${params.image_tag} .
+						docker build -t ${env.docker_username}/${env.IMAGE_WITH_EPOCH}:${env.TAG} .
 					"""
 				}
 			}
@@ -83,7 +87,7 @@ pipeline{
 			steps{
 				sh """
 					set -e			
-					docker run -d --name app -p ${params.local_expose_port}:${params.container_exposed_port} ${env.docker_username}/${env.IMAGE_WITH_EPOCH}:${params.image_tag}
+					docker run -d --name app -p ${params.local_expose_port}:${params.container_exposed_port} ${env.docker_username}/${env.IMAGE_WITH_EPOCH}:${env.TAG}
 				"""	
 			}
 		}
@@ -92,14 +96,19 @@ pipeline{
 				script{
 					if(params.push_image){
 						// Rename image & then push to docker registry
-						sh "docker tag ${env.docker_username}/${env.IMAGE_WITH_EPOCH}:${params.image_tag} ${env.docker_username}/docker-jenkins-cicd-demo:${env.IMAGE_WITH_EPOCH}_${params.image_tag}"
-						sh "docker push ${env.docker_username}/docker-jenkins-cicd-demo:${env.IMAGE_WITH_EPOCH}_${params.image_tag}"
+						sh "docker tag ${env.docker_username}/${env.IMAGE_WITH_EPOCH}:${env.TAG} ${env.docker_username}/docker-jenkins-cicd-demo:${env.IMAGE_WITH_EPOCH}_${env.TAG}"
+						sh "docker push ${env.docker_username}/docker-jenkins-cicd-demo:${env.IMAGE_WITH_EPOCH}_${env.TAG}"
 					}else {
 						echo "Skipping image push as per user input"
 						currentBuild.result = 'ABORTED'
 						error("Build aborted by condition")
 					}
 				}
+			}
+		}
+		stage("Images Cleanup"){
+			steps{
+				sh "docker images prune -f -a"
 			}
 		}
 	}
