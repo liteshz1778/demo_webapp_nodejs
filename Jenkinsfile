@@ -50,21 +50,23 @@ pipeline{
 			}
 		}
 		stage("Build Docker Image"){
-			script {
-				// Generate epoch time
-				def epoch = System.currentTimeMillis() / 1000
+			steps {
+				script {
+					// Generate epoch time
+					def epoch = System.currentTimeMillis() / 1000
 
-				// Create new image tag/name
-				env.IMAGE_WITH_EPOCH = "${params.image_name}-${epoch}"
+					// Create new image tag/name
+					env.IMAGE_WITH_EPOCH = "${params.image_name}-${epoch}"
 
-				echo "Generated Image Name: ${env.IMAGE_WITH_EPOCH}"
-			}
+					echo "Generated Image Name: ${env.IMAGE_WITH_EPOCH}"
+				}
 
-			dir(env.REPO_NAME){
-				sh """
-					set -e
-					docker build -t ${env.docker_username}/${env.IMAGE_WITH_EPOCH}:${params.image_tag} .
-				"""
+				dir(env.REPO_NAME){
+					sh """
+						set -e
+						docker build -t ${env.docker_username}/${env.IMAGE_WITH_EPOCH}:${params.image_tag} .
+					"""
+				}
 			}
 		}
 		stage("Delete Older Running Container"){
