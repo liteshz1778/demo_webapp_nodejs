@@ -93,7 +93,7 @@ pipeline{
 		}
 		stage("Unused Images Cleanup"){
 			steps{
-				sh "docker images prune -a -f"
+				sh "docker image prune -a -f"
 			}
 		}
 		stage("Push Image based user input..."){
