@@ -53,7 +53,7 @@ pipeline{
 			steps {
 				script {
 					// Generate epoch time
-					def epoch = System.currentTimeMillis() / 100000
+					def epoch = System.currentTimeMillis()
 
 					// Create new image tag/name
 					env.IMAGE_WITH_EPOCH = "${params.image_name}-${epoch}"
