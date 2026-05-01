@@ -1,0 +1,360 @@
+Started by GitHub push by liteshz1778
+Obtained Jenkinsfile from git https://github.com/liteshz1778/demo_webapp_nodejs.git
+[Pipeline] Start of Pipeline
+[Pipeline] node
+Running on Jenkins in /var/jenkins_home/workspace/demo_nodejs_webhook_trigger
+[Pipeline] {
+[Pipeline] stage
+[Pipeline] { (Declarative: Checkout SCM)
+[Pipeline] checkout
+Selected Git installation does not exist. Using Default
+The recommended git tool is: NONE
+using credential e328fb1d-742d-46de-8f13-87f3e906d08d
+ > git rev-parse --resolve-git-dir /var/jenkins_home/workspace/demo_nodejs_webhook_trigger/.git # timeout=10
+Fetching changes from the remote Git repository
+ > git config remote.origin.url https://github.com/liteshz1778/demo_webapp_nodejs.git # timeout=10
+Fetching upstream changes from https://github.com/liteshz1778/demo_webapp_nodejs.git
+ > git --version # timeout=10
+ > git --version # 'git version 2.47.3'
+using GIT_ASKPASS to set credentials git_cred
+ > git fetch --tags --force --progress -- https://github.com/liteshz1778/demo_webapp_nodejs.git +refs/heads/*:refs/remotes/origin/* # timeout=10
+ > git rev-parse refs/remotes/origin/master^{commit} # timeout=10
+Checking out Revision b204c85f974d385da993bf2b0245bcf980368f8c (refs/remotes/origin/master)
+ > git config core.sparsecheckout # timeout=10
+ > git checkout -f b204c85f974d385da993bf2b0245bcf980368f8c # timeout=10
+Commit message: "Added changes to Jenkinsfile02 - 01/05/2026"
+ > git rev-list --no-walk 1ed508e30e5ec912f02eab3e0c26b7a8ae604d44 # timeout=10
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] withEnv
+[Pipeline] {
+[Pipeline] withEnv
+[Pipeline] {
+[Pipeline] timeout
+Timeout set to expire in 10 min
+[Pipeline] {
+[Pipeline] retry
+[Pipeline] {
+[Pipeline] stage
+[Pipeline] { (Workspace CleanUp)
+[Pipeline] sh
++ rm -rvf Dockerfile Jenkinsfile README.md demo_webapp_nodejs demo_webapp_nodejs@tmp package-lock.json package.json public src
+removed 'Dockerfile'
+removed 'Jenkinsfile'
+removed 'README.md'
+removed directory 'demo_webapp_nodejs/.git/branches'
+removed 'demo_webapp_nodejs/.git/description'
+removed 'demo_webapp_nodejs/.git/hooks/applypatch-msg.sample'
+removed 'demo_webapp_nodejs/.git/hooks/commit-msg.sample'
+removed 'demo_webapp_nodejs/.git/hooks/fsmonitor-watchman.sample'
+removed 'demo_webapp_nodejs/.git/hooks/post-update.sample'
+removed 'demo_webapp_nodejs/.git/hooks/pre-applypatch.sample'
+removed 'demo_webapp_nodejs/.git/hooks/pre-commit.sample'
+removed 'demo_webapp_nodejs/.git/hooks/pre-merge-commit.sample'
+removed 'demo_webapp_nodejs/.git/hooks/pre-push.sample'
+removed 'demo_webapp_nodejs/.git/hooks/pre-rebase.sample'
+removed 'demo_webapp_nodejs/.git/hooks/pre-receive.sample'
+removed 'demo_webapp_nodejs/.git/hooks/prepare-commit-msg.sample'
+removed 'demo_webapp_nodejs/.git/hooks/push-to-checkout.sample'
+removed 'demo_webapp_nodejs/.git/hooks/sendemail-validate.sample'
+removed 'demo_webapp_nodejs/.git/hooks/update.sample'
+removed directory 'demo_webapp_nodejs/.git/hooks'
+removed 'demo_webapp_nodejs/.git/info/exclude'
+removed directory 'demo_webapp_nodejs/.git/info'
+removed 'demo_webapp_nodejs/.git/config'
+removed 'demo_webapp_nodejs/.git/objects/pack/pack-e2bb679a4a63e55ccb91565e0d1f022f9dec2091.pack'
+removed 'demo_webapp_nodejs/.git/objects/pack/pack-e2bb679a4a63e55ccb91565e0d1f022f9dec2091.rev'
+removed 'demo_webapp_nodejs/.git/objects/pack/pack-e2bb679a4a63e55ccb91565e0d1f022f9dec2091.idx'
+removed directory 'demo_webapp_nodejs/.git/objects/pack'
+removed directory 'demo_webapp_nodejs/.git/objects/info'
+removed directory 'demo_webapp_nodejs/.git/objects'
+removed 'demo_webapp_nodejs/.git/HEAD'
+removed 'demo_webapp_nodejs/.git/refs/heads/master'
+removed directory 'demo_webapp_nodejs/.git/refs/heads'
+removed directory 'demo_webapp_nodejs/.git/refs/tags'
+removed 'demo_webapp_nodejs/.git/refs/remotes/origin/HEAD'
+removed directory 'demo_webapp_nodejs/.git/refs/remotes/origin'
+removed directory 'demo_webapp_nodejs/.git/refs/remotes'
+removed directory 'demo_webapp_nodejs/.git/refs'
+removed 'demo_webapp_nodejs/.git/packed-refs'
+removed 'demo_webapp_nodejs/.git/logs/refs/remotes/origin/HEAD'
+removed directory 'demo_webapp_nodejs/.git/logs/refs/remotes/origin'
+removed directory 'demo_webapp_nodejs/.git/logs/refs/remotes'
+removed 'demo_webapp_nodejs/.git/logs/refs/heads/master'
+removed directory 'demo_webapp_nodejs/.git/logs/refs/heads'
+removed directory 'demo_webapp_nodejs/.git/logs/refs'
+removed 'demo_webapp_nodejs/.git/logs/HEAD'
+removed directory 'demo_webapp_nodejs/.git/logs'
+removed 'demo_webapp_nodejs/.git/index'
+removed directory 'demo_webapp_nodejs/.git'
+removed 'demo_webapp_nodejs/.dockerignore'
+removed 'demo_webapp_nodejs/.gitignore'
+removed 'demo_webapp_nodejs/Dockerfile'
+removed 'demo_webapp_nodejs/Jenkinsfile'
+removed 'demo_webapp_nodejs/README.md'
+removed 'demo_webapp_nodejs/package-lock.json'
+removed 'demo_webapp_nodejs/package.json'
+removed 'demo_webapp_nodejs/public/favicon.ico'
+removed 'demo_webapp_nodejs/public/index.html'
+removed 'demo_webapp_nodejs/public/logo192.png'
+removed 'demo_webapp_nodejs/public/logo512.png'
+removed 'demo_webapp_nodejs/public/manifest.json'
+removed 'demo_webapp_nodejs/public/robots.txt'
+removed directory 'demo_webapp_nodejs/public'
+removed 'demo_webapp_nodejs/src/App.css'
+removed 'demo_webapp_nodejs/src/App.js'
+removed 'demo_webapp_nodejs/src/App.test.js'
+removed 'demo_webapp_nodejs/src/index.css'
+removed 'demo_webapp_nodejs/src/index.js'
+removed 'demo_webapp_nodejs/src/logo.svg'
+removed 'demo_webapp_nodejs/src/reportWebVitals.js'
+removed 'demo_webapp_nodejs/src/setupTests.js'
+removed directory 'demo_webapp_nodejs/src'
+removed directory 'demo_webapp_nodejs'
+removed directory 'demo_webapp_nodejs@tmp'
+removed 'package-lock.json'
+removed 'package.json'
+removed 'public/favicon.ico'
+removed 'public/index.html'
+removed 'public/logo192.png'
+removed 'public/logo512.png'
+removed 'public/manifest.json'
+removed 'public/robots.txt'
+removed directory 'public'
+removed 'src/App.css'
+removed 'src/App.js'
+removed 'src/App.test.js'
+removed 'src/index.css'
+removed 'src/index.js'
+removed 'src/logo.svg'
+removed 'src/reportWebVitals.js'
+removed 'src/setupTests.js'
+removed directory 'src'
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (Cloning Git Repo....)
+[Pipeline] sh
++ git clone -b master https://github.com/liteshz1778/demo_webapp_nodejs.git
+Cloning into 'demo_webapp_nodejs'...
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (Fetch Git Repo Name)
+[Pipeline] script
+[Pipeline] {
+[Pipeline] echo
+REPO_NAME: demo_webapp_nodejs
+[Pipeline] }
+[Pipeline] // script
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (Registry Login)
+[Pipeline] withCredentials
+Masking supported pattern matches of $DOCKER_PASS
+[Pipeline] {
+[Pipeline] sh
+Warning: A secret was passed to "sh" using Groovy String interpolation, which is insecure.
+		 Affected argument(s) used the following variable(s): [DOCKER_PASS]
+		 See https://jenkins.io/redirect/groovy-string-interpolation for details.
++ set -e
++ docker login -u liteshz -p ****
+WARNING! Using --password via the CLI is insecure. Use --password-stdin.
+WARNING! Your password will be stored unencrypted in /var/jenkins_home/.docker/config.json.
+Configure a credential helper to remove this warning. See
+https://docs.docker.com/engine/reference/commandline/login/#credentials-store
+
+Login Succeeded
+[Pipeline] }
+[Pipeline] // withCredentials
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (Build Docker Image)
+[Pipeline] script
+[Pipeline] {
+[Pipeline] echo
+Generated Image Name: nodejs_simple_web_app-1777634782418
+[Pipeline] echo
+Image Tag: latest-11
+[Pipeline] }
+[Pipeline] // script
+[Pipeline] dir
+Running in /var/jenkins_home/workspace/demo_nodejs_webhook_trigger/demo_webapp_nodejs
+[Pipeline] {
+[Pipeline] sh
++ set -e
++ docker build -t liteshz/nodejs_simple_web_app-1777634782418:latest-11 .
+#0 building with "default" instance using docker driver
+
+#1 [internal] load build definition from Dockerfile
+#1 transferring dockerfile: 185B done
+#1 DONE 0.0s
+
+#2 [auth] library/node:pull token for registry-1.docker.io
+#2 DONE 0.0s
+
+#3 [internal] load metadata for docker.io/library/node:18
+#3 DONE 0.1s
+
+#4 [internal] load .dockerignore
+#4 transferring context: 125B done
+#4 DONE 0.0s
+
+#5 [1/4] FROM docker.io/library/node:18@sha256:c6ae79e38498325db67193d391e6ec1d224d96c693a8a4d943498556716d3783
+#5 DONE 0.0s
+
+#6 [internal] load build context
+#6 transferring context: 690.55kB 0.0s done
+#6 DONE 0.0s
+
+#7 [2/4] WORKDIR /demo-web-app
+#7 CACHED
+
+#8 [3/4] COPY . .
+#8 DONE 0.1s
+
+#9 [4/4] RUN npm install
+#9 6.064 npm warn deprecated whatwg-encoding@1.0.5: Use @exodus/bytes instead for a more spec-conformant and faster implementation
+#9 6.116 npm warn deprecated w3c-hr-time@1.0.2: Use your platform's native performance.now() and performance.timeOrigin.
+#9 6.591 npm warn deprecated stable@0.1.8: Modern JS already guarantees Array#sort() is a stable sort, so this library is deprecated. See the compatibility table on MDN: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/sort#browser_compatibility
+#9 6.696 npm warn deprecated sourcemap-codec@1.4.8: Please use @jridgewell/sourcemap-codec instead
+#9 6.751 npm warn deprecated rimraf@3.0.2: Rimraf versions prior to v4 are no longer supported
+#9 6.936 npm warn deprecated rollup-plugin-terser@7.0.2: This package has been deprecated and is no longer maintained. Please use @rollup/plugin-terser
+#9 7.926 npm warn deprecated q@1.5.1: You or someone you depend on is using Q, the JavaScript Promise library that gave JavaScript developers strong feelings about promises. They can almost certainly migrate to the native JavaScript promise now. Thank you literally everyone for joining me in this bet against the odds. Be excellent to each other.
+#9 7.926 npm warn deprecated
+#9 7.926 npm warn deprecated (For a CapTP with native promises, see @endo/eventual-send and @endo/captp)
+#9 8.322 npm warn deprecated workbox-cacheable-response@6.6.0: workbox-background-sync@6.6.0
+#9 9.043 npm warn deprecated workbox-google-analytics@6.6.0: It is not compatible with newer versions of GA starting with v4, as long as you are using GAv3 it should be ok, but the package is not longer being maintained
+#9 9.247 npm warn deprecated inflight@1.0.6: This module is not supported, and leaks memory. Do not use it. Check out lru-cache if you want a good and tested way to coalesce async requests by a key value, which is much more comprehensive and powerful.
+#9 9.583 npm warn deprecated glob@7.2.3: Old versions of glob are not supported, and contain widely publicized security vulnerabilities, which have been fixed in the current version. Please update. Support for old versions may be purchased (at exorbitant rates) by contacting i@izs.me
+#9 10.18 npm warn deprecated domexception@2.0.1: Use your platform's native DOMException instead
+#9 11.28 npm warn deprecated abab@2.0.6: Use your platform's native atob() and btoa() methods instead
+#9 12.11 npm warn deprecated @humanwhocodes/config-array@0.13.0: Use @eslint/config-array instead
+#9 12.11 npm warn deprecated @humanwhocodes/object-schema@2.0.3: Use @eslint/object-schema instead
+#9 12.55 npm warn deprecated svgo@1.3.2: This SVGO version is no longer supported. Upgrade to v2.x.x.
+#9 12.94 npm warn deprecated @babel/plugin-proposal-optional-chaining@7.21.0: This proposal has been merged to the ECMAScript standard and thus this plugin is no longer maintained. Please use @babel/plugin-transform-optional-chaining instead.
+#9 12.94 npm warn deprecated @babel/plugin-proposal-numeric-separator@7.18.6: This proposal has been merged to the ECMAScript standard and thus this plugin is no longer maintained. Please use @babel/plugin-transform-numeric-separator instead.
+#9 13.01 npm warn deprecated @babel/plugin-proposal-private-methods@7.18.6: This proposal has been merged to the ECMAScript standard and thus this plugin is no longer maintained. Please use @babel/plugin-transform-private-methods instead.
+#9 13.01 npm warn deprecated @babel/plugin-proposal-nullish-coalescing-operator@7.18.6: This proposal has been merged to the ECMAScript standard and thus this plugin is no longer maintained. Please use @babel/plugin-transform-nullish-coalescing-operator instead.
+#9 13.01 npm warn deprecated @babel/plugin-proposal-class-properties@7.18.6: This proposal has been merged to the ECMAScript standard and thus this plugin is no longer maintained. Please use @babel/plugin-transform-class-properties instead.
+#9 14.35 npm warn deprecated @babel/plugin-proposal-private-property-in-object@7.21.11: This proposal has been merged to the ECMAScript standard and thus this plugin is no longer maintained. Please use @babel/plugin-transform-private-property-in-object instead.
+#9 14.56 npm warn deprecated source-map@0.8.0-beta.0: The work that was done in this beta branch won't be included in future versions
+#9 18.13 npm warn deprecated eslint@8.57.1: This version is no longer supported. Please see https://eslint.org/version-support for other options.
+#9 22.88 
+#9 22.88 added 1315 packages, and audited 1316 packages in 23s
+#9 22.88 
+#9 22.88 269 packages are looking for funding
+#9 22.88   run `npm fund` for details
+#9 22.93 
+#9 22.93 28 vulnerabilities (9 low, 5 moderate, 14 high)
+#9 22.93 
+#9 22.93 To address issues that do not require attention, run:
+#9 22.93   npm audit fix
+#9 22.93 
+#9 22.93 To address all issues (including breaking changes), run:
+#9 22.93   npm audit fix --force
+#9 22.93 
+#9 22.93 Run `npm audit` for details.
+#9 22.93 npm notice
+#9 22.93 npm notice New major version of npm available! 10.8.2 -> 11.13.0
+#9 22.93 npm notice Changelog: https://github.com/npm/cli/releases/tag/v11.13.0
+#9 22.93 npm notice To update run: npm install -g npm@11.13.0
+#9 22.93 npm notice
+#9 DONE 26.7s
+
+#10 exporting to image
+#10 exporting layers
+#10 exporting layers 17.9s done
+#10 writing image sha256:a92fbe4fbbb9fb37cebd5541f4bc449b5cc97dd30fc358207e2b5ba97f7f693d done
+#10 naming to docker.io/liteshz/nodejs_simple_web_app-1777634782418:latest-11 done
+#10 DONE 17.9s
+[Pipeline] }
+[Pipeline] // dir
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (Delete Older Running Container)
+[Pipeline] dir
+Running in /var/jenkins_home/workspace/demo_nodejs_webhook_trigger/demo_webapp_nodejs
+[Pipeline] {
+[Pipeline] sh
++ set -e
++ docker container rm -f app
+app
+[Pipeline] }
+[Pipeline] // dir
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (Running Container & exposing localhost port to access the service)
+[Pipeline] sh
++ set -e
++ docker run -d --name app -p 9090:3000 liteshz/nodejs_simple_web_app-1777634782418:latest-11
+45c21562886f5544acf027754420724195b82eaa05f2cfba79e9e94b0f458e90
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (Push Image based user input...)
+[Pipeline] script
+[Pipeline] {
+[Pipeline] sh
++ docker tag liteshz/nodejs_simple_web_app-1777634782418:latest-11 liteshz/docker-jenkins-cicd-demo:nodejs_simple_web_app-1777634782418_latest-11
+[Pipeline] sh
++ docker push liteshz/docker-jenkins-cicd-demo:nodejs_simple_web_app-1777634782418_latest-11
+The push refers to repository [docker.io/liteshz/docker-jenkins-cicd-demo]
+7e5ec6549431: Preparing
+b001f53b5090: Preparing
+85c5446926f2: Preparing
+d2a991bcab4d: Preparing
+b624aa2d5ea2: Preparing
+d399c9dc306f: Preparing
+84f9fa179c1b: Preparing
+ce84ba212e49: Preparing
+e4dc8cd9ecc8: Preparing
+6428cc293366: Preparing
+2f7436e79a0b: Preparing
+84f9fa179c1b: Waiting
+ce84ba212e49: Waiting
+e4dc8cd9ecc8: Waiting
+6428cc293366: Waiting
+2f7436e79a0b: Waiting
+d399c9dc306f: Waiting
+85c5446926f2: Layer already exists
+b624aa2d5ea2: Layer already exists
+d2a991bcab4d: Layer already exists
+ce84ba212e49: Layer already exists
+d399c9dc306f: Layer already exists
+84f9fa179c1b: Layer already exists
+e4dc8cd9ecc8: Layer already exists
+6428cc293366: Layer already exists
+2f7436e79a0b: Layer already exists
+b001f53b5090: Pushed
+7e5ec6549431: Pushed
+nodejs_simple_web_app-1777634782418_latest-11: digest: sha256:c87e15b5cfba3599d1a424877ee7e03ed79daab979c7ce0881b2a7117128482f size: 2633
+[Pipeline] }
+[Pipeline] // script
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (Declarative: Post Actions)
+[Pipeline] sh
++ docker logout
+Removing login credentials for https://index.docker.io/v1/
+[Pipeline] echo
+Application Build Successfully
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] }
+[Pipeline] // retry
+[Pipeline] }
+[Pipeline] // timeout
+[Pipeline] }
+[Pipeline] // withEnv
+[Pipeline] }
+[Pipeline] // withEnv
+[Pipeline] }
+[Pipeline] // node
+[Pipeline] End of Pipeline
+Finished: SUCCESS
